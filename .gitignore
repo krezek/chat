@@ -7,3 +7,8 @@
 /Server/x64
 /x64/Debug
 /x64/Release
+/sqlite/x64/Debug
+/sqlite-shell/x64/Debug
+/sqlite/x64/Release
+/sqlite-shell/x64/Release
+*.user
