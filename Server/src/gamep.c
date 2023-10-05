@@ -13,5 +13,7 @@ void SrvInfo(
     *size = (int)wcslen(msg) + 1;
     *outString = (wchar_t*)midl_user_allocate(*size * sizeof(wchar_t));
     wcscpy_s(*outString, *size, msg);
+
+    ClientCallBack();
 }
 

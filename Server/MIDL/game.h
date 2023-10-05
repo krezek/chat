@@ -64,6 +64,8 @@ void SrvInfo(
     /* [out] */ long *size,
     /* [size_is][size_is][out] */ wchar_t **outString);
 
+/* [callback] */ void ClientCallBack( void);
+
 
 extern handle_t hello_IfHandle;
 

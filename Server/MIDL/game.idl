@@ -9,4 +9,6 @@ interface Game
 		[out]                   long* size,
 		[out, size_is(, *size)] wchar_t** outString
 	);
+
+	[callback] void ClientCallBack();
 }

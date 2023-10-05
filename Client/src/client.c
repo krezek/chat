@@ -5,6 +5,11 @@
 
 #include "game.h" 
 
+void ClientCallBack(void)
+{
+    printf("ClientCallBack\n");
+}
+
 void main()
 {
     RPC_STATUS status;
