@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\hello_c.c" />
-    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\client.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -78,7 +78,7 @@
   <ItemGroup>
     <ClCompile Include="src\hellop.c" />
     <ClCompile Include="src\hello_s.c" />
-    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\server.c" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MIDL\hello.idl">

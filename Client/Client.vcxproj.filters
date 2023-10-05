@@ -23,7 +23,7 @@
     <ClCompile Include="src\hello_c.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.c">
+    <ClCompile Include="src\client.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
