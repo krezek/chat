@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 04:14:07 2038
  */
-/* Compiler settings for hello.idl, hello.acf:
+/* Compiler settings for game.idl, game.acf:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -30,31 +30,31 @@
 
 #include <string.h>
 
-#include "hello.h"
+#include "game.h"
 
-#define TYPE_FORMAT_STRING_SIZE   7                                 
-#define PROC_FORMAT_STRING_SIZE   59                                
+#define TYPE_FORMAT_STRING_SIZE   27                                
+#define PROC_FORMAT_STRING_SIZE   39                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
 
-typedef struct _hello_MIDL_TYPE_FORMAT_STRING
+typedef struct _game_MIDL_TYPE_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ TYPE_FORMAT_STRING_SIZE ];
-    } hello_MIDL_TYPE_FORMAT_STRING;
+    } game_MIDL_TYPE_FORMAT_STRING;
 
-typedef struct _hello_MIDL_PROC_FORMAT_STRING
+typedef struct _game_MIDL_PROC_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ PROC_FORMAT_STRING_SIZE ];
-    } hello_MIDL_PROC_FORMAT_STRING;
+    } game_MIDL_PROC_FORMAT_STRING;
 
-typedef struct _hello_MIDL_EXPR_FORMAT_STRING
+typedef struct _game_MIDL_EXPR_FORMAT_STRING
     {
     long          Pad;
     unsigned char  Format[ EXPR_FORMAT_STRING_SIZE ];
-    } hello_MIDL_EXPR_FORMAT_STRING;
+    } game_MIDL_EXPR_FORMAT_STRING;
 
 
 static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax_2_0 = 
@@ -115,20 +115,20 @@ ObjectType ## _unbind((ObjectType) pObject, ServerHandle);\
 #endif
 
 
-extern const hello_MIDL_TYPE_FORMAT_STRING hello__MIDL_TypeFormatString;
-extern const hello_MIDL_PROC_FORMAT_STRING hello__MIDL_ProcFormatString;
-extern const hello_MIDL_EXPR_FORMAT_STRING hello__MIDL_ExprFormatString;
+extern const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString;
+extern const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString;
+extern const game_MIDL_EXPR_FORMAT_STRING game__MIDL_ExprFormatString;
 
 #define GENERIC_BINDING_TABLE_SIZE   0            
 
 
-/* Standard interface: hello, ver. 1.0,
+/* Standard interface: Game, ver. 1.0,
    GUID={0xb0562d52,0xb292,0x4918,{0xaa,0xba,0x37,0x98,0x47,0xe0,0x0b,0xc5}} */
 
 handle_t hello_IfHandle;
 
 
-static const RPC_CLIENT_INTERFACE hello___RpcClientInterface =
+static const RPC_CLIENT_INTERFACE Game___RpcClientInterface =
     {
     sizeof(RPC_CLIENT_INTERFACE),
     {{0xb0562d52,0xb292,0x4918,{0xaa,0xba,0x37,0x98,0x47,0xe0,0x0b,0xc5}},{1,0}},
@@ -140,38 +140,29 @@ static const RPC_CLIENT_INTERFACE hello___RpcClientInterface =
     0,
     0x00000000
     };
-RPC_IF_HANDLE hello_v1_0_c_ifspec = (RPC_IF_HANDLE)& hello___RpcClientInterface;
+RPC_IF_HANDLE Game_v1_0_c_ifspec = (RPC_IF_HANDLE)& Game___RpcClientInterface;
 #ifdef __cplusplus
 namespace {
 #endif
 
-extern const MIDL_STUB_DESC hello_StubDesc;
+extern const MIDL_STUB_DESC Game_StubDesc;
 #ifdef __cplusplus
 }
 #endif
 
-static RPC_BINDING_HANDLE hello__MIDL_AutoBindHandle;
+static RPC_BINDING_HANDLE Game__MIDL_AutoBindHandle;
 
 
-void HelloProc( 
-    /* [string][in] */ unsigned char *pszString)
+void SrvInfo( 
+    /* [out] */ long *size,
+    /* [size_is][size_is][out] */ wchar_t **outString)
 {
 
     NdrClientCall2(
-                  ( PMIDL_STUB_DESC  )&hello_StubDesc,
-                  (PFORMAT_STRING) &hello__MIDL_ProcFormatString.Format[0],
-                  pszString);
-    
-}
-
-
-void Shutdown( void)
-{
-
-    NdrClientCall2(
-                  ( PMIDL_STUB_DESC  )&hello_StubDesc,
-                  (PFORMAT_STRING) &hello__MIDL_ProcFormatString.Format[32],
-                  0);
+                  ( PMIDL_STUB_DESC  )&Game_StubDesc,
+                  (PFORMAT_STRING) &game__MIDL_ProcFormatString.Format[0],
+                  size,
+                  outString);
     
 }
 
@@ -180,85 +171,88 @@ void Shutdown( void)
 #error  Invalid build platform for this stub.
 #endif
 
-static const hello_MIDL_PROC_FORMAT_STRING hello__MIDL_ProcFormatString =
+static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
     {
         0,
         {
 
-	/* Procedure HelloProc */
+	/* Procedure SrvInfo */
 
 			0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x0 ),	/* 0 */
-/*  8 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/*  8 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
 /* 10 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 12 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 14 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
-			0x1,		/* 1 */
+/* 12 */	NdrFcShort( 0x1c ),	/* 28 */
+/* 14 */	0x41,		/* Oi2 Flags:  srv must size, has ext, */
+			0x2,		/* 2 */
 /* 16 */	0xa,		/* 10 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 18 */	NdrFcShort( 0x0 ),	/* 0 */
+			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
+/* 18 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 20 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 22 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 24 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter pszString */
+	/* Parameter size */
 
-/* 26 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
+/* 26 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
 /* 28 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 30 */	NdrFcShort( 0x4 ),	/* Type Offset=4 */
-
-	/* Procedure Shutdown */
-
-/* 32 */	0x32,		/* FC_BIND_PRIMITIVE */
-			0x48,		/* Old Flags:  */
-/* 34 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 38 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 40 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 42 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 44 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 46 */	0x40,		/* Oi2 Flags:  has ext, */
+/* 30 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
-/* 48 */	0xa,		/* 10 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 50 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 52 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 54 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 56 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter outString */
+
+/* 32 */	NdrFcShort( 0x2013 ),	/* Flags:  must size, must free, out, srv alloc size=8 */
+/* 34 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 36 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
 
 			0x0
         }
     };
 
-static const hello_MIDL_TYPE_FORMAT_STRING hello__MIDL_TypeFormatString =
+static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
     {
         0,
         {
 			NdrFcShort( 0x0 ),	/* 0 */
 /*  2 */	
-			0x11, 0x8,	/* FC_RP [simple_pointer] */
-/*  4 */	
-			0x22,		/* FC_C_CSTRING */
+			0x11, 0xc,	/* FC_RP [alloced_on_stack] [simple_pointer] */
+/*  4 */	0x8,		/* FC_LONG */
 			0x5c,		/* FC_PAD */
+/*  6 */	
+			0x11, 0x14,	/* FC_RP [alloced_on_stack] [pointer_deref] */
+/*  8 */	NdrFcShort( 0x2 ),	/* Offset= 2 (10) */
+/* 10 */	
+			0x12, 0x0,	/* FC_UP */
+/* 12 */	NdrFcShort( 0x2 ),	/* Offset= 2 (14) */
+/* 14 */	
+			0x1b,		/* FC_CARRAY */
+			0x1,		/* 1 */
+/* 16 */	NdrFcShort( 0x2 ),	/* 2 */
+/* 18 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+			0x54,		/* FC_DEREFERENCE */
+/* 20 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 22 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
+/* 24 */	0x5,		/* FC_WCHAR */
+			0x5b,		/* FC_END */
 
 			0x0
         }
     };
 
-static const unsigned short hello_FormatStringOffsetTable[] =
+static const unsigned short Game_FormatStringOffsetTable[] =
     {
-    0,
-    32
+    0
     };
 
 
 #ifdef __cplusplus
 namespace {
 #endif
-static const MIDL_STUB_DESC hello_StubDesc = 
+static const MIDL_STUB_DESC Game_StubDesc = 
     {
-    (void *)& hello___RpcClientInterface,
+    (void *)& Game___RpcClientInterface,
     MIDL_user_allocate,
     MIDL_user_free,
     &hello_IfHandle,
@@ -266,7 +260,7 @@ static const MIDL_STUB_DESC hello_StubDesc =
     0,
     0,
     0,
-    hello__MIDL_TypeFormatString.Format,
+    game__MIDL_TypeFormatString.Format,
     1, /* -error bounds_check flag */
     0x50002, /* Ndr library version */
     0,

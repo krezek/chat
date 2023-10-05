@@ -1,9 +1,9 @@
-/* file: helloc.c */
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include "hello.h" 
 #include <windows.h>
+
+#include "game.h" 
 
 void main()
 {
@@ -14,7 +14,6 @@ void main()
     wchar_t* pszEndpoint = L"9300";
     wchar_t* pszOptions = NULL;
     wchar_t* pszStringBinding = NULL;
-    unsigned char* pszString = "hello, world";
     unsigned long ulCode;
 
     status = RpcStringBindingCompose(pszUuid,
@@ -31,8 +30,10 @@ void main()
 
     RpcTryExcept
     {
-        HelloProc(pszString);
-        //Shutdown();
+        wchar_t* info = NULL;
+        long size = 0;
+        SrvInfo(&size, &info);
+        printf("gsrv> %S\n", info);
     }
         RpcExcept(1)
     {

@@ -1,0 +1,12 @@
+[
+uuid(b0562d52-b292-4918-aaba-379847e00bc5),
+version(1.0)
+]
+
+interface Game
+{
+	void SrvInfo(
+		[out]                   long* size,
+		[out, size_is(, *size)] wchar_t** outString
+	);
+}

@@ -76,10 +76,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\hello.h" />
+    <ClInclude Include="include\game.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\hello_c.c" />
+    <ClCompile Include="src\game_c.c" />
     <ClCompile Include="src\client.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

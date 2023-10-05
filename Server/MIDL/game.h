@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 04:14:07 2038
  */
-/* Compiler settings for hello.idl, hello.acf:
+/* Compiler settings for game.idl, game.acf:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -32,8 +32,8 @@
 #endif /* __RPCNDR_H_VERSION__ */
 
 
-#ifndef __hello_h__
-#define __hello_h__
+#ifndef __game_h__
+#define __game_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
@@ -54,24 +54,23 @@ extern "C"{
 #endif 
 
 
-#ifndef __hello_INTERFACE_DEFINED__
-#define __hello_INTERFACE_DEFINED__
+#ifndef __Game_INTERFACE_DEFINED__
+#define __Game_INTERFACE_DEFINED__
 
-/* interface hello */
+/* interface Game */
 /* [implicit_handle][version][uuid] */ 
 
-void HelloProc( 
-    /* [string][in] */ unsigned char *pszString);
-
-void Shutdown( void);
+void SrvInfo( 
+    /* [out] */ long *size,
+    /* [size_is][size_is][out] */ wchar_t **outString);
 
 
 extern handle_t hello_IfHandle;
 
 
-extern RPC_IF_HANDLE hello_v1_0_c_ifspec;
-extern RPC_IF_HANDLE hello_v1_0_s_ifspec;
-#endif /* __hello_INTERFACE_DEFINED__ */
+extern RPC_IF_HANDLE Game_v1_0_c_ifspec;
+extern RPC_IF_HANDLE Game_v1_0_s_ifspec;
+#endif /* __Game_INTERFACE_DEFINED__ */
 
 /* Additional Prototypes for ALL interfaces */
 

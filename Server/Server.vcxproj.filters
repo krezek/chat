@@ -21,20 +21,20 @@
     <ClCompile Include="src\server.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\hello_s.c">
+    <ClCompile Include="src\game_s.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\hellop.c">
+    <ClCompile Include="src\gamep.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="MIDL\hello.idl">
+    <Midl Include="MIDL\game.idl">
       <Filter>MIDL</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\hello.h">
+    <ClInclude Include="include\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

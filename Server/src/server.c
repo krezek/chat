@@ -1,9 +1,9 @@
-/* file: hellos.c */
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include "hello.h"
 #include <windows.h>
+
+#include "game.h"
 
 RPC_STATUS CALLBACK SecurityCallback(RPC_IF_HANDLE hInterface, void* pBindingHandle)
 {
@@ -28,12 +28,12 @@ void main()
     if (status) exit(status);
 
     status = RpcServerRegisterIf2(
-        hello_v1_0_s_ifspec,              // Interface to register.
-        NULL,                                // Use the MIDL generated entry-point vector.
-        NULL,                                // Use the MIDL generated entry-point vector.
-        RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH, // Forces use of security callback.
-        RPC_C_LISTEN_MAX_CALLS_DEFAULT,      // Use default number of concurrent calls.
-        (unsigned)-1,                        // Infinite max size of incoming data blocks.
+        Game_v1_0_s_ifspec,
+        NULL,
+        NULL,
+        RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH,
+        RPC_C_LISTEN_MAX_CALLS_DEFAULT,
+        (unsigned)-1,
         SecurityCallback);
 
     if (status) exit(status);

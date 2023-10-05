@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 04:14:07 2038
  */
-/* Compiler settings for hello.idl, hello.acf:
+/* Compiler settings for game.idl, game.acf:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -29,31 +29,31 @@
 #pragma warning( disable: 4024 )  /* array to pointer mapping*/
 
 #include <string.h>
-#include "hello.h"
+#include "game.h"
 
-#define TYPE_FORMAT_STRING_SIZE   7                                 
-#define PROC_FORMAT_STRING_SIZE   59                                
+#define TYPE_FORMAT_STRING_SIZE   27                                
+#define PROC_FORMAT_STRING_SIZE   39                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
 
-typedef struct _hello_MIDL_TYPE_FORMAT_STRING
+typedef struct _game_MIDL_TYPE_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ TYPE_FORMAT_STRING_SIZE ];
-    } hello_MIDL_TYPE_FORMAT_STRING;
+    } game_MIDL_TYPE_FORMAT_STRING;
 
-typedef struct _hello_MIDL_PROC_FORMAT_STRING
+typedef struct _game_MIDL_PROC_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ PROC_FORMAT_STRING_SIZE ];
-    } hello_MIDL_PROC_FORMAT_STRING;
+    } game_MIDL_PROC_FORMAT_STRING;
 
-typedef struct _hello_MIDL_EXPR_FORMAT_STRING
+typedef struct _game_MIDL_EXPR_FORMAT_STRING
     {
     long          Pad;
     unsigned char  Format[ EXPR_FORMAT_STRING_SIZE ];
-    } hello_MIDL_EXPR_FORMAT_STRING;
+    } game_MIDL_EXPR_FORMAT_STRING;
 
 
 static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax_2_0 = 
@@ -113,36 +113,36 @@ ObjectType ## _unbind((ObjectType) pObject, ServerHandle);\
 #define XFG_TRAMPOLINE_FPTR_DEPENDENT_SYMBOL(Symbol) Symbol
 #endif
 
-extern const hello_MIDL_TYPE_FORMAT_STRING hello__MIDL_TypeFormatString;
-extern const hello_MIDL_PROC_FORMAT_STRING hello__MIDL_ProcFormatString;
-extern const hello_MIDL_EXPR_FORMAT_STRING hello__MIDL_ExprFormatString;
+extern const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString;
+extern const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString;
+extern const game_MIDL_EXPR_FORMAT_STRING game__MIDL_ExprFormatString;
 
-/* Standard interface: hello, ver. 1.0,
+/* Standard interface: Game, ver. 1.0,
    GUID={0xb0562d52,0xb292,0x4918,{0xaa,0xba,0x37,0x98,0x47,0xe0,0x0b,0xc5}} */
 
 
-extern const MIDL_SERVER_INFO hello_ServerInfo;
+extern const MIDL_SERVER_INFO Game_ServerInfo;
 
-extern const RPC_DISPATCH_TABLE hello_v1_0_DispatchTable;
+extern const RPC_DISPATCH_TABLE Game_v1_0_DispatchTable;
 
-static const RPC_SERVER_INTERFACE hello___RpcServerInterface =
+static const RPC_SERVER_INTERFACE Game___RpcServerInterface =
     {
     sizeof(RPC_SERVER_INTERFACE),
     {{0xb0562d52,0xb292,0x4918,{0xaa,0xba,0x37,0x98,0x47,0xe0,0x0b,0xc5}},{1,0}},
     {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}},
-    (RPC_DISPATCH_TABLE*)&hello_v1_0_DispatchTable,
+    (RPC_DISPATCH_TABLE*)&Game_v1_0_DispatchTable,
     0,
     0,
     0,
-    &hello_ServerInfo,
+    &Game_ServerInfo,
     0x04000000
     };
-RPC_IF_HANDLE hello_v1_0_s_ifspec = (RPC_IF_HANDLE)& hello___RpcServerInterface;
+RPC_IF_HANDLE Game_v1_0_s_ifspec = (RPC_IF_HANDLE)& Game___RpcServerInterface;
 #ifdef __cplusplus
 namespace {
 #endif
 
-extern const MIDL_STUB_DESC hello_StubDesc;
+extern const MIDL_STUB_DESC Game_StubDesc;
 #ifdef __cplusplus
 }
 #endif
@@ -152,85 +152,88 @@ extern const MIDL_STUB_DESC hello_StubDesc;
 #error  Invalid build platform for this stub.
 #endif
 
-static const hello_MIDL_PROC_FORMAT_STRING hello__MIDL_ProcFormatString =
+static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
     {
         0,
         {
 
-	/* Procedure HelloProc */
+	/* Procedure SrvInfo */
 
 			0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x0 ),	/* 0 */
-/*  8 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/*  8 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
 /* 10 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 12 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 14 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
-			0x1,		/* 1 */
+/* 12 */	NdrFcShort( 0x1c ),	/* 28 */
+/* 14 */	0x41,		/* Oi2 Flags:  srv must size, has ext, */
+			0x2,		/* 2 */
 /* 16 */	0xa,		/* 10 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 18 */	NdrFcShort( 0x0 ),	/* 0 */
+			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
+/* 18 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 20 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 22 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 24 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter pszString */
+	/* Parameter size */
 
-/* 26 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
+/* 26 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
 /* 28 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 30 */	NdrFcShort( 0x4 ),	/* Type Offset=4 */
-
-	/* Procedure Shutdown */
-
-/* 32 */	0x32,		/* FC_BIND_PRIMITIVE */
-			0x48,		/* Old Flags:  */
-/* 34 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 38 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 40 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 42 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 44 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 46 */	0x40,		/* Oi2 Flags:  has ext, */
+/* 30 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
-/* 48 */	0xa,		/* 10 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 50 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 52 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 54 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 56 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter outString */
+
+/* 32 */	NdrFcShort( 0x2013 ),	/* Flags:  must size, must free, out, srv alloc size=8 */
+/* 34 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 36 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
 
 			0x0
         }
     };
 
-static const hello_MIDL_TYPE_FORMAT_STRING hello__MIDL_TypeFormatString =
+static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
     {
         0,
         {
 			NdrFcShort( 0x0 ),	/* 0 */
 /*  2 */	
-			0x11, 0x8,	/* FC_RP [simple_pointer] */
-/*  4 */	
-			0x22,		/* FC_C_CSTRING */
+			0x11, 0xc,	/* FC_RP [alloced_on_stack] [simple_pointer] */
+/*  4 */	0x8,		/* FC_LONG */
 			0x5c,		/* FC_PAD */
+/*  6 */	
+			0x11, 0x14,	/* FC_RP [alloced_on_stack] [pointer_deref] */
+/*  8 */	NdrFcShort( 0x2 ),	/* Offset= 2 (10) */
+/* 10 */	
+			0x12, 0x0,	/* FC_UP */
+/* 12 */	NdrFcShort( 0x2 ),	/* Offset= 2 (14) */
+/* 14 */	
+			0x1b,		/* FC_CARRAY */
+			0x1,		/* 1 */
+/* 16 */	NdrFcShort( 0x2 ),	/* 2 */
+/* 18 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+			0x54,		/* FC_DEREFERENCE */
+/* 20 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 22 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
+/* 24 */	0x5,		/* FC_WCHAR */
+			0x5b,		/* FC_END */
 
 			0x0
         }
     };
 
-static const unsigned short hello_FormatStringOffsetTable[] =
+static const unsigned short Game_FormatStringOffsetTable[] =
     {
-    0,
-    32
+    0
     };
 
 
 #ifdef __cplusplus
 namespace {
 #endif
-static const MIDL_STUB_DESC hello_StubDesc = 
+static const MIDL_STUB_DESC Game_StubDesc = 
     {
-    (void *)& hello___RpcServerInterface,
+    (void *)& Game___RpcServerInterface,
     MIDL_user_allocate,
     MIDL_user_free,
     0,
@@ -238,7 +241,7 @@ static const MIDL_STUB_DESC hello_StubDesc =
     0,
     0,
     0,
-    hello__MIDL_TypeFormatString.Format,
+    game__MIDL_TypeFormatString.Format,
     1, /* -error bounds_check flag */
     0x50002, /* Ndr library version */
     0,
@@ -255,30 +258,28 @@ static const MIDL_STUB_DESC hello_StubDesc =
 }
 #endif
 
-static const RPC_DISPATCH_FUNCTION hello_table[] =
+static const RPC_DISPATCH_FUNCTION Game_table[] =
     {
-    NdrServerCall2,
     NdrServerCall2,
     0
     };
-static const RPC_DISPATCH_TABLE hello_v1_0_DispatchTable = 
+static const RPC_DISPATCH_TABLE Game_v1_0_DispatchTable = 
     {
-    2,
-    (RPC_DISPATCH_FUNCTION*)hello_table
+    1,
+    (RPC_DISPATCH_FUNCTION*)Game_table
     };
 
-static const SERVER_ROUTINE hello_ServerRoutineTable[] = 
+static const SERVER_ROUTINE Game_ServerRoutineTable[] = 
     {
-    (SERVER_ROUTINE)HelloProc,
-    (SERVER_ROUTINE)Shutdown
+    (SERVER_ROUTINE)SrvInfo
     };
 
-static const MIDL_SERVER_INFO hello_ServerInfo = 
+static const MIDL_SERVER_INFO Game_ServerInfo = 
     {
-    &hello_StubDesc,
-    hello_ServerRoutineTable,
-    hello__MIDL_ProcFormatString.Format,
-    hello_FormatStringOffsetTable,
+    &Game_StubDesc,
+    Game_ServerRoutineTable,
+    game__MIDL_ProcFormatString.Format,
+    Game_FormatStringOffsetTable,
     0,
     0,
     0,

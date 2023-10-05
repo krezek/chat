@@ -76,12 +76,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\hellop.c" />
-    <ClCompile Include="src\hello_s.c" />
+    <ClCompile Include="src\gamep.c" />
+    <ClCompile Include="src\game_s.c" />
     <ClCompile Include="src\server.c" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="MIDL\hello.idl">
+    <Midl Include="MIDL\game.idl">
       <ApplicationConfigurationMode Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ApplicationConfigurationMode>
       <ApplicationConfigurationMode Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ApplicationConfigurationMode>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -89,7 +89,7 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\hello.h" />
+    <ClInclude Include="include\game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
