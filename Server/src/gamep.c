@@ -16,7 +16,7 @@ void GetServerInfo(
 }
 
 int TryLoggin(
-    /* [in] */ long* size,
+    /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** alias)
 {
     printf("Try to loggin as '%S'\n", *alias);

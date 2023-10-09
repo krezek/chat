@@ -31,7 +31,7 @@
 #include <string.h>
 #include "game.h"
 
-#define TYPE_FORMAT_STRING_SIZE   31                                
+#define TYPE_FORMAT_STRING_SIZE   47                                
 #define PROC_FORMAT_STRING_SIZE   83                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
@@ -195,7 +195,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 40 */	NdrFcLong( 0x0 ),	/* 0 */
 /* 44 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 46 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
-/* 48 */	NdrFcShort( 0x1c ),	/* 28 */
+/* 48 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 50 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 52 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
 			0x3,		/* 3 */
@@ -208,7 +208,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 
 	/* Parameter size */
 
-/* 64 */	NdrFcShort( 0x148 ),	/* Flags:  in, base type, simple ref, */
+/* 64 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
 /* 66 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
 /* 68 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
@@ -217,7 +217,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 
 /* 70 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
 /* 72 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
-/* 74 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
+/* 74 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
 
 	/* Return value */
 
@@ -256,9 +256,21 @@ static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
 /* 24 */	0x5,		/* FC_WCHAR */
 			0x5b,		/* FC_END */
 /* 26 */	
-			0x11, 0x8,	/* FC_RP [simple_pointer] */
-/* 28 */	0x8,		/* FC_LONG */
-			0x5c,		/* FC_PAD */
+			0x11, 0x14,	/* FC_RP [alloced_on_stack] [pointer_deref] */
+/* 28 */	NdrFcShort( 0x2 ),	/* Offset= 2 (30) */
+/* 30 */	
+			0x12, 0x0,	/* FC_UP */
+/* 32 */	NdrFcShort( 0x2 ),	/* Offset= 2 (34) */
+/* 34 */	
+			0x1b,		/* FC_CARRAY */
+			0x1,		/* 1 */
+/* 36 */	NdrFcShort( 0x2 ),	/* 2 */
+/* 38 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+			0x0,		/*  */
+/* 40 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 42 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
+/* 44 */	0x5,		/* FC_WCHAR */
+			0x5b,		/* FC_END */
 
 			0x0
         }

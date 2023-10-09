@@ -11,7 +11,7 @@ interface Game
 	);
 
 	int TryLoggin(
-		[in]					long* size,
-		[in , size_is(, *size)]	wchar_t** alias
+		[in]					long size,
+		[in , size_is(, size)]	wchar_t** alias
 	);
 }

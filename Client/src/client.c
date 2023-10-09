@@ -37,12 +37,7 @@ void main()
         printf("gsrv> %S\n", info);
 
         const wchar_t* msg = L"Kinaz";
-        long s = (int)wcslen(msg) + 1;
-        wchar_t *outString = (wchar_t*)midl_user_allocate(s * sizeof(wchar_t));
-        assert(outString != NULL);
-        wcscpy_s(outString, s, msg);
-        TryLoggin(&s, &outString);
-        midl_user_free(outString);
+        TryLoggin((int)wcslen(msg) + 1, &msg);
     }
         RpcExcept(1)
     {
