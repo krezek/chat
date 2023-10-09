@@ -188,7 +188,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 34 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 36 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
 
-	/* Procedure TryLoggin */
+	/* Procedure TryLogin */
 
 /* 38 */	0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
@@ -361,7 +361,7 @@ static const RPC_DISPATCH_TABLE Game_v1_0_DispatchTable =
 static const SERVER_ROUTINE Game_ServerRoutineTable[] = 
     {
     (SERVER_ROUTINE)GetServerInfo,
-    (SERVER_ROUTINE)TryLoggin,
+    (SERVER_ROUTINE)TryLogin,
     (SERVER_ROUTINE)Logout
     };
 

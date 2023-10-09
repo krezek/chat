@@ -167,7 +167,7 @@ void GetServerInfo(
 }
 
 
-int TryLoggin( 
+int TryLogin( 
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **alias)
 {
@@ -238,7 +238,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 34 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 36 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
 
-	/* Procedure TryLoggin */
+	/* Procedure TryLogin */
 
 /* 38 */	0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */

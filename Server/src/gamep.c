@@ -15,11 +15,11 @@ void GetServerInfo(
     wcscpy_s(*outString, *size, msg);
 }
 
-int TryLoggin(
+int TryLogin(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** alias)
 {
-    printf("Try to loggin as '%S'\n", *alias);
+    printf("Try to login as '%S'\n", *alias);
     return 0;
 }
 
@@ -27,5 +27,5 @@ void Logout(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** alias)
 {
-    printf("Loggout'%S'\n", *alias);
+    printf("Logout'%S'\n", *alias);
 }
