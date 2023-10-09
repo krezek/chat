@@ -7,13 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcxproj", "{247CE7A1-98ED-427B-A2FD-95252E9E05BB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sqlite", "sqlite\sqlite.vcxproj", "{146D6206-D659-48FE-8C21-E8BEC40A94DE}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sqlite-shell", "sqlite-shell\sqlite-shell.vcxproj", "{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}"
-	ProjectSection(ProjectDependencies) = postProject
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE} = {146D6206-D659-48FE-8C21-E8BEC40A94DE}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -38,22 +31,6 @@ Global
 		{247CE7A1-98ED-427B-A2FD-95252E9E05BB}.Release|x64.Build.0 = Release|x64
 		{247CE7A1-98ED-427B-A2FD-95252E9E05BB}.Release|x86.ActiveCfg = Release|x64
 		{247CE7A1-98ED-427B-A2FD-95252E9E05BB}.Release|x86.Build.0 = Release|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Debug|x64.ActiveCfg = Debug|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Debug|x64.Build.0 = Debug|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Debug|x86.ActiveCfg = Debug|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Debug|x86.Build.0 = Debug|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Release|x64.ActiveCfg = Release|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Release|x64.Build.0 = Release|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Release|x86.ActiveCfg = Release|x64
-		{146D6206-D659-48FE-8C21-E8BEC40A94DE}.Release|x86.Build.0 = Release|x64
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Debug|x64.ActiveCfg = Debug|x64
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Debug|x64.Build.0 = Debug|x64
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Debug|x86.ActiveCfg = Debug|Win32
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Debug|x86.Build.0 = Debug|Win32
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Release|x64.ActiveCfg = Release|x64
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Release|x64.Build.0 = Release|x64
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Release|x86.ActiveCfg = Release|Win32
-		{5E9518BF-4588-41DB-8037-2A8FDA2AFEE2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
