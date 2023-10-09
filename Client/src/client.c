@@ -38,6 +38,7 @@ void main()
 
         const wchar_t* msg = L"Kinaz";
         TryLoggin((int)wcslen(msg) + 1, &msg);
+        Logout((int)wcslen(msg) + 1, &msg);
     }
         RpcExcept(1)
     {

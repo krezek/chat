@@ -68,6 +68,10 @@ int TryLoggin(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **alias);
 
+void Logout( 
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t **alias);
+
 
 extern handle_t hello_IfHandle;
 

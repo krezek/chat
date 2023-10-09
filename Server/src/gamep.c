@@ -22,3 +22,10 @@ int TryLoggin(
     printf("Try to loggin as '%S'\n", *alias);
     return 0;
 }
+
+void Logout(
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t** alias)
+{
+    printf("Loggout'%S'\n", *alias);
+}

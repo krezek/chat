@@ -14,4 +14,9 @@ interface Game
 		[in]					long size,
 		[in , size_is(, size)]	wchar_t** alias
 	);
+
+	void Logout(
+		[in]					long size,
+		[in, size_is(, size)]	wchar_t** alias
+	);
 }

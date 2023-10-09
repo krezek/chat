@@ -33,7 +33,7 @@
 #include "game.h"
 
 #define TYPE_FORMAT_STRING_SIZE   47                                
-#define PROC_FORMAT_STRING_SIZE   83                                
+#define PROC_FORMAT_STRING_SIZE   121                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -184,6 +184,20 @@ int TryLoggin(
 }
 
 
+void Logout( 
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t **alias)
+{
+
+    NdrClientCall2(
+                  ( PMIDL_STUB_DESC  )&Game_StubDesc,
+                  (PFORMAT_STRING) &game__MIDL_ProcFormatString.Format[82],
+                  size,
+                  alias);
+    
+}
+
+
 #if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
 #endif
@@ -262,6 +276,37 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 80 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
+	/* Procedure Logout */
+
+/* 82 */	0x32,		/* FC_BIND_PRIMITIVE */
+			0x48,		/* Old Flags:  */
+/* 84 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 88 */	NdrFcShort( 0x2 ),	/* 2 */
+/* 90 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 92 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 94 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 96 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
+			0x2,		/* 2 */
+/* 98 */	0xa,		/* 10 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 100 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 102 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 104 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 106 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter size */
+
+/* 108 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 110 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 112 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Parameter alias */
+
+/* 114 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
+/* 116 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 118 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
+
 			0x0
         }
     };
@@ -315,7 +360,8 @@ static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
 static const unsigned short Game_FormatStringOffsetTable[] =
     {
     0,
-    38
+    38,
+    82
     };
 
 
