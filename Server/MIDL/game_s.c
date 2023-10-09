@@ -31,8 +31,8 @@
 #include <string.h>
 #include "game.h"
 
-#define TYPE_FORMAT_STRING_SIZE   27                                
-#define PROC_FORMAT_STRING_SIZE   65                                
+#define TYPE_FORMAT_STRING_SIZE   31                                
+#define PROC_FORMAT_STRING_SIZE   83                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -147,18 +147,6 @@ extern const MIDL_STUB_DESC Game_StubDesc;
 }
 #endif
 
- extern const MIDL_STUBLESS_PROXY_INFO Game_ProxyInfo;
-
-/* [callback] */ void ClientCallBack( void)
-{
-
-    NdrClientCall2(
-                  ( PMIDL_STUB_DESC  )&Game_StubDesc,
-                  (PFORMAT_STRING) &game__MIDL_ProcFormatString.Format[38],
-                  0);
-    
-}
-
 
 #if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
@@ -169,7 +157,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
         0,
         {
 
-	/* Procedure SrvInfo */
+	/* Procedure GetServerInfo */
 
 			0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
@@ -200,23 +188,43 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 34 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 36 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
 
-	/* Procedure ClientCallBack */
+	/* Procedure TryLoggin */
 
-/* 38 */	0x34,		/* FC_CALLBACK_HANDLE */
+/* 38 */	0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
 /* 40 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 44 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 46 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 48 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 50 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 52 */	0x40,		/* Oi2 Flags:  has ext, */
-			0x0,		/* 0 */
+/* 44 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 46 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/* 48 */	NdrFcShort( 0x1c ),	/* 28 */
+/* 50 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 52 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+			0x3,		/* 3 */
 /* 54 */	0xa,		/* 10 */
-			0x1,		/* Ext Flags:  new corr desc, */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
 /* 56 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 58 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 58 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 60 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 62 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter size */
+
+/* 64 */	NdrFcShort( 0x148 ),	/* Flags:  in, base type, simple ref, */
+/* 66 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 68 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Parameter alias */
+
+/* 70 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
+/* 72 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 74 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
+
+	/* Return value */
+
+/* 76 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 78 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 80 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
 
 			0x0
         }
@@ -247,6 +255,10 @@ static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
 /* 22 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
 /* 24 */	0x5,		/* FC_WCHAR */
 			0x5b,		/* FC_END */
+/* 26 */	
+			0x11, 0x8,	/* FC_RP [simple_pointer] */
+/* 28 */	0x8,		/* FC_LONG */
+			0x5c,		/* FC_PAD */
 
 			0x0
         }
@@ -255,11 +267,6 @@ static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
 static const unsigned short Game_FormatStringOffsetTable[] =
     {
     0,
-    };
-
-
-static const unsigned short _callbackGame_FormatStringOffsetTable[] =
-    {
     38
     };
 
@@ -297,17 +304,19 @@ static const MIDL_STUB_DESC Game_StubDesc =
 static const RPC_DISPATCH_FUNCTION Game_table[] =
     {
     NdrServerCall2,
+    NdrServerCall2,
     0
     };
 static const RPC_DISPATCH_TABLE Game_v1_0_DispatchTable = 
     {
-    1,
+    2,
     (RPC_DISPATCH_FUNCTION*)Game_table
     };
 
 static const SERVER_ROUTINE Game_ServerRoutineTable[] = 
     {
-    (SERVER_ROUTINE)SrvInfo,
+    (SERVER_ROUTINE)GetServerInfo,
+    (SERVER_ROUTINE)TryLoggin
     };
 
 static const MIDL_SERVER_INFO Game_ServerInfo = 

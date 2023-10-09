@@ -60,11 +60,13 @@ extern "C"{
 /* interface Game */
 /* [implicit_handle][version][uuid] */ 
 
-void SrvInfo( 
+void GetServerInfo( 
     /* [out] */ long *size,
     /* [size_is][size_is][out] */ wchar_t **outString);
 
-/* [callback] */ void ClientCallBack( void);
+int TryLoggin( 
+    /* [in] */ long *size,
+    /* [size_is][size_is][in] */ wchar_t **alias);
 
 
 extern handle_t hello_IfHandle;

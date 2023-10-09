@@ -5,10 +5,13 @@ version(1.0)
 
 interface Game
 {
-	void SrvInfo(
-		[out]                   long* size,
+	void GetServerInfo(
+		[out]					long* size,
 		[out, size_is(, *size)] wchar_t** outString
 	);
 
-	[callback] void ClientCallBack();
+	int TryLoggin(
+		[in]					long* size,
+		[in , size_is(, *size)]	wchar_t** alias
+	);
 }

@@ -1,14 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <assert.h>
 #include <windows.h>
 
 #include "game.h" 
-
-void ClientCallBack(void)
-{
-    printf("ClientCallBack\n");
-}
 
 void main()
 {
@@ -37,8 +33,16 @@ void main()
     {
         wchar_t* info = NULL;
         long size = 0;
-        SrvInfo(&size, &info);
+        GetServerInfo(&size, &info);
         printf("gsrv> %S\n", info);
+
+        const wchar_t* msg = L"Kinaz";
+        long s = (int)wcslen(msg) + 1;
+        wchar_t *outString = (wchar_t*)midl_user_allocate(s * sizeof(wchar_t));
+        assert(outString != NULL);
+        wcscpy_s(outString, s, msg);
+        TryLoggin(&s, &outString);
+        midl_user_free(outString);
     }
         RpcExcept(1)
     {
