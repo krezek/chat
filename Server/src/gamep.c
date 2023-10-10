@@ -21,9 +21,8 @@ int Initialize()
     Map_insert(g_events_map, L"fr", (void*)4);
 
     Map_traversal(g_events_map);
-
-    void* v = Map_get(g_events_map, L"fa");
     Map_remove(g_events_map, L"kinaz");
+    Map_traversal(g_events_map);
 
     return 0;
 }
