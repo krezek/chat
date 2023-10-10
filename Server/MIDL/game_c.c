@@ -33,7 +33,7 @@
 #include "game.h"
 
 #define TYPE_FORMAT_STRING_SIZE   47                                
-#define PROC_FORMAT_STRING_SIZE   121                               
+#define PROC_FORMAT_STRING_SIZE   159                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -198,6 +198,20 @@ void Logout(
 }
 
 
+void WaitForClient( 
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t **cname)
+{
+
+    NdrClientCall2(
+                  ( PMIDL_STUB_DESC  )&Game_StubDesc,
+                  (PFORMAT_STRING) &game__MIDL_ProcFormatString.Format[120],
+                  size,
+                  cname);
+    
+}
+
+
 #if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
 #endif
@@ -307,6 +321,37 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 116 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 118 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
 
+	/* Procedure WaitForClient */
+
+/* 120 */	0x32,		/* FC_BIND_PRIMITIVE */
+			0x48,		/* Old Flags:  */
+/* 122 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 126 */	NdrFcShort( 0x3 ),	/* 3 */
+/* 128 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 130 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 132 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 134 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
+			0x2,		/* 2 */
+/* 136 */	0xa,		/* 10 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 138 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 140 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 142 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 144 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter size */
+
+/* 146 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 148 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 150 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Parameter cname */
+
+/* 152 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
+/* 154 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 156 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
+
 			0x0
         }
     };
@@ -361,7 +406,8 @@ static const unsigned short Game_FormatStringOffsetTable[] =
     {
     0,
     38,
-    82
+    82,
+    120
     };
 
 

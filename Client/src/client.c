@@ -4,7 +4,30 @@
 #include <assert.h>
 #include <windows.h>
 
-#include "game.h" 
+#include "game.h"
+
+DWORD dwThreadId;
+HANDLE  hThread;
+
+DWORD WINAPI WaitFor(LPVOID lpParam)
+{
+    unsigned long ulCode;
+    const wchar_t* cname = L"rezek";
+    printf("Wait for ... %S\n", cname);
+
+    RpcTryExcept
+    {
+        WaitForClient((int)wcslen(cname) + 1, &cname);
+    }
+    RpcExcept(1)
+    {
+        ulCode = RpcExceptionCode();
+        printf("Runtime reported exception 0x%lx = %ld\n", ulCode, ulCode);
+    }
+    RpcEndExcept
+
+    return 0;
+}
 
 void main()
 {
@@ -28,7 +51,7 @@ void main()
     status = RpcBindingFromStringBinding(pszStringBinding, &hello_IfHandle);
 
     if (status) exit(status);
-
+    //for(;;){
     RpcTryExcept
     {
         wchar_t* info = NULL;
@@ -38,6 +61,19 @@ void main()
 
         const wchar_t* msg = L"Kinaz";
         TryLogin((int)wcslen(msg) + 1, &msg);
+
+        hThread = CreateThread(NULL, 0, WaitFor, NULL, 0, &dwThreadId);
+
+        if (hThread == NULL)
+        {
+            fprintf(stderr, "CreateThread error\n");
+            ExitProcess(3);
+        }
+
+        WaitForSingleObject(hThread, INFINITE);
+
+        CloseHandle(hThread);
+
         Logout((int)wcslen(msg) + 1, &msg);
     }
         RpcExcept(1)
@@ -46,7 +82,7 @@ void main()
         printf("Runtime reported exception 0x%lx = %ld\n", ulCode, ulCode);
     }
     RpcEndExcept
-
+    //}
         status = RpcStringFree(&pszStringBinding);
 
     if (status) exit(status);

@@ -72,6 +72,10 @@ void Logout(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **alias);
 
+void WaitForClient( 
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t **cname);
+
 
 extern handle_t hello_IfHandle;
 

@@ -29,3 +29,11 @@ void Logout(
 {
     printf("Logout'%S'\n", *alias);
 }
+
+void WaitForClient(
+    /* [in] */ long size,
+    /* [size_is][size_is][in] */ wchar_t** cname)
+{
+    DWORD id = GetCurrentThreadId();
+    printf("Wait for %d '%S'\n", id, *cname);
+}
