@@ -3,27 +3,38 @@
 #include <assert.h>
 
 #include "game.h"
+#include "util.h"
 
-wchar_t msg[] = L"This is game Server version 0.0.1";
+wchar_t about[] = L"This is game Server version 0.0.1";
+Map* g_events_map;
 
 int Initialize()
 {
     printf("Initialize\n");
+
+    g_events_map = Map_init();
+    Map_insert(g_events_map, L"kinaz", (void*)1);
+    Map_insert(g_events_map, L"rezek", (void*)2);
+    Map_insert(g_events_map, L"first", (void*)3);
+    Map_insert(g_events_map, L"fa", (void*)4);
+
     return 0;
 }
 
 void Destroy()
 {
     printf("Destroy\n");
+
+    Map_free(g_events_map);
 }
 
 void GetServerInfo(
     /* [out] */ long* size,
     /* [size_is][size_is][out] */ wchar_t** outString)
 {
-    *size = (int)wcslen(msg) + 1;
+    *size = (int)wcslen(about) + 1;
     *outString = (wchar_t*)midl_user_allocate(*size * sizeof(wchar_t));
-    wcscpy_s(*outString, *size, msg);
+    wcscpy_s(*outString, *size, about);
 }
 
 int TryLogin(
