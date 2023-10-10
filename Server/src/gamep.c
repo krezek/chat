@@ -15,10 +15,15 @@ int Initialize()
     g_events_map = Map_init();
     Map_insert(g_events_map, L"kinaz", (void*)1);
     Map_insert(g_events_map, L"rezek", (void*)2);
+    Map_insert(g_events_map, L"rr", (void*)6);
+    Map_insert(g_events_map, L"ra", (void*)6);
     Map_insert(g_events_map, L"first", (void*)3);
-    Map_insert(g_events_map, L"fa", (void*)4);
+    Map_insert(g_events_map, L"fr", (void*)4);
 
-    void* v = Map_get(g_events_map, L"rez");
+    Map_traversal(g_events_map);
+
+    void* v = Map_get(g_events_map, L"fa");
+    Map_remove(g_events_map, L"kinaz");
 
     return 0;
 }

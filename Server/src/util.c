@@ -89,3 +89,74 @@ void* Map_get(Map* m, const wchar_t* k)
 {
 	return Map_get_n(&m->_root, k);
 }
+
+void Map_remove_n(Node* parent, Node** pn, const wchar_t* k)
+{
+	if (*pn == NULL)
+		return;
+
+	if (wcscmp((*pn)->_key, k) == 0)
+	{
+		if ((*pn)->_left == NULL &&
+			(*pn)->_right == NULL)
+		{
+			Node_free(*pn);
+			*pn = NULL;
+		}
+		else if ((*pn)->_right == NULL)
+		{
+			Node* temp = *pn;
+			*pn = (*pn)->_left;
+			temp->_left = NULL;
+			Node_free((temp));
+		}
+		else if ((*pn)->_left == NULL)
+		{
+			Node* temp = *pn;
+			*pn = (*pn)->_right;
+			temp->_right = NULL;
+			Node_free((temp));
+		}
+		else
+		{
+			Node* cur = (*pn)->_right;
+
+			while (cur->_left)
+				cur = cur->_left;
+
+			wchar_t* tk = (*pn)->_key;
+			(*pn)->_key = cur->_key;
+			free(tk);
+			(*pn)->_value = cur->_value;
+			
+			if(cur == (*pn)->_right)
+				(*pn)->_right = NULL;
+
+			cur->_key = NULL;
+			Node_free(cur);
+		}
+	}
+	else if (wcscmp((*pn)->_key, k) > 0)
+		Map_remove_n(*pn, &((*pn)->_left), k);
+	else
+		Map_remove_n(*pn, &((*pn)->_right), k);
+}
+
+void Map_remove(Map* m, const wchar_t* k)
+{
+	Map_remove_n(NULL, &m->_root, k);
+}
+
+void Map_traversal_n(Node* node) {
+	if (node != NULL) 
+	{
+		Map_traversal_n(node->_left);
+		printf("(%S, %llx) ", node->_key, (long long)node->_value);
+		Map_traversal_n(node->_right);
+	}
+}
+
+void Map_traversal(Map* m)
+{
+	Map_traversal_n(m->_root);
+}
