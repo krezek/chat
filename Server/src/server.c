@@ -5,6 +5,9 @@
 
 #include "game.h"
 
+int Initialize();
+void Destroy();
+
 RPC_STATUS CALLBACK SecurityCallback(RPC_IF_HANDLE hInterface, void* pBindingHandle)
 {
     return RPC_S_OK; // Always allow anyone.
@@ -19,6 +22,9 @@ void main()
     wchar_t* pszEndpoint = L"9300";
     unsigned int    cMinCalls = 1;
     unsigned int    fDontWait = FALSE;
+
+    if (Initialize())
+        exit(-1);
 
     status = RpcServerUseProtseqEp(pszProtocolSequence,
         RPC_C_LISTEN_MAX_CALLS_DEFAULT,
@@ -43,6 +49,8 @@ void main()
         fDontWait);
 
     if (status) exit(status);
+
+    Destroy();
 }
 
 /******************************************************/

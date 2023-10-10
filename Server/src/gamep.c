@@ -6,6 +6,17 @@
 
 wchar_t msg[] = L"This is game Server version 0.0.1";
 
+int Initialize()
+{
+    printf("Initialize\n");
+    return 0;
+}
+
+void Destroy()
+{
+    printf("Destroy\n");
+}
+
 void GetServerInfo(
     /* [out] */ long* size,
     /* [size_is][size_is][out] */ wchar_t** outString)
