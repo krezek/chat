@@ -71,3 +71,21 @@ void Map_insert(Map* m, const wchar_t* k, void* v)
 {
 	Map_insert_n(&m->_root, k, v);
 }
+
+void* Map_get_n(Node** pn, const wchar_t* k)
+{
+	if (*pn == NULL)
+		return NULL;
+
+	if (wcscmp((*pn)->_key, k) == 0)
+		return (*pn)->_value;
+	else if (wcscmp((*pn)->_key, k) > 0)
+		return Map_get_n(&((*pn)->_left), k);
+	else
+		return Map_get_n(&((*pn)->_right), k);
+}
+
+void* Map_get(Map* m, const wchar_t* k)
+{
+	return Map_get_n(&m->_root, k);
+}

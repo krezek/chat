@@ -18,6 +18,8 @@ int Initialize()
     Map_insert(g_events_map, L"first", (void*)3);
     Map_insert(g_events_map, L"fa", (void*)4);
 
+    void* v = Map_get(g_events_map, L"rez");
+
     return 0;
 }
 
