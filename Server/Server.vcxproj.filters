@@ -27,6 +27,9 @@
     <ClCompile Include="src\gamep.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MIDL\game.idl">
@@ -35,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
