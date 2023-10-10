@@ -27,3 +27,18 @@ void Node_free(Node* n)
 
 	free(n);
 }
+
+Map* Map_init()
+{
+	Map* m = (Map*)malloc(sizeof(Map));
+	assert(m != NULL);
+
+	m->_root = NULL;
+
+	return m;
+}
+
+void Map_free(Map* m)
+{
+	free(m);
+}
