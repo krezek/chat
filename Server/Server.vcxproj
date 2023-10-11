@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="src\gamep.c" />
     <ClCompile Include="src\game_s.c" />
+    <ClCompile Include="src\log.c" />
     <ClCompile Include="src\server.c" />
     <ClCompile Include="src\util.c" />
   </ItemGroup>
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\log.h" />
     <ClInclude Include="include\util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -30,6 +30,9 @@
     <ClCompile Include="src\util.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MIDL\game.idl">
@@ -41,6 +44,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
