@@ -1,3 +1,8 @@
+#ifdef _DEBUG
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -22,6 +27,10 @@ void main()
     wchar_t* pszEndpoint = L"9300";
     unsigned int    cMinCalls = 1;
     unsigned int    fDontWait = FALSE;
+
+#ifdef _DEBUG
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
 
     if (Initialize())
         exit(-1);
