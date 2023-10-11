@@ -41,6 +41,7 @@ Map* Map_init()
 
 void Map_free(Map* m)
 {
+	Map_remove_all(m);
 	free(m);
 }
 
@@ -157,4 +158,20 @@ void Map_traversal(Map* m)
 {
 	Map_traversal_n(m->_root);
 	printf("\n");
+}
+
+void Map_remove_all_n(Node* node)
+{
+	if (node == NULL)
+		return;
+
+	Map_remove_all_n(node->_left);
+	Map_remove_all_n(node->_right);
+
+	Node_free(node);
+}
+
+void Map_remove_all(Map* m)
+{
+	Map_remove_all_n(m->_root);
 }

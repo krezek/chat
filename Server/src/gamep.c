@@ -12,7 +12,7 @@ int Initialize()
 {
     printf("Initialize\n");
 
-    /*g_events_map = Map_init();
+    g_events_map = Map_init();
     Map_insert(g_events_map, L"kinaz", (void*)1);
     Map_insert(g_events_map, L"rezek", (void*)2);
     Map_insert(g_events_map, L"rr", (void*)6);
@@ -25,7 +25,7 @@ int Initialize()
     Map_traversal(g_events_map);
     Map_remove(g_events_map, L"kinaz");
     Map_traversal(g_events_map);
-    */
+    
     return 0;
 }
 
@@ -33,7 +33,7 @@ void Destroy()
 {
     printf("Destroy\n");
 
-    //Map_free(g_events_map);
+    Map_free(g_events_map);
 }
 
 void GetServerInfo(
