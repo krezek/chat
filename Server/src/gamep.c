@@ -4,6 +4,7 @@
 
 #include "game.h"
 #include "util.h"
+#include "log.h"
 
 wchar_t about[] = L"This is game Server version 0.0.1";
 Map* g_events_map;
@@ -11,6 +12,8 @@ Map* g_events_map;
 int Initialize()
 {
     printf("Initialize\n");
+
+    Logger_init();
 
     g_events_map = Map_init();
 
@@ -26,6 +29,8 @@ void Destroy()
     printf("Destroy\n");
 
     Map_free(g_events_map);
+
+    Logger_destroy();
 }
 
 void GetServerInfo(
