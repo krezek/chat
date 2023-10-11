@@ -124,14 +124,13 @@ void Map_remove_n(Node** pn, const wchar_t* k)
 			while ((*cur)->_left)
 				cur = &(*cur)->_left;
 
-			wchar_t* tk = (*pn)->_key;
-			(*pn)->_key = (*cur)->_key;
-			free(tk);
+			free((*pn)->_key);
+			(*pn)->_key = (wchar_t*)malloc((wcslen((*cur)->_key) + 1) * sizeof(wchar_t));
+			assert((*pn)->_key != NULL);
+			wcscpy_s((*pn)->_key, wcslen((*cur)->_key) + 1, (*cur)->_key);
 			(*pn)->_value = (*cur)->_value;
 			
-			(*cur)->_key = NULL;
-			Node_free(*cur);
-			*cur = NULL;
+			Map_remove_n(cur, (*cur)->_key);
 		}
 	}
 	else if (wcscmp((*pn)->_key, k) > 0)
