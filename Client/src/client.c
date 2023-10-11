@@ -17,7 +17,8 @@ DWORD WINAPI WaitFor(LPVOID lpParam)
 
     RpcTryExcept
     {
-        WaitForClientMessage((int)wcslen(cname) + 1, &cname);
+        //WaitForClientMessage((int)wcslen(cname) + 1, &cname);
+        SendClientMessage((int)wcslen(cname) + 1, &cname, (int)wcslen(cname) + 1, &cname);
     }
     RpcExcept(1)
     {
@@ -76,7 +77,7 @@ void main()
 
         Logout((int)wcslen(msg) + 1, &msg);
 
-        Shutdown();
+        //Shutdown();
     }
         RpcExcept(1)
     {

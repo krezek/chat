@@ -13,18 +13,10 @@ int Initialize()
     printf("Initialize\n");
 
     g_events_map = Map_init();
-    Map_insert(g_events_map, L"kinaz", (void*)1);
-    Map_insert(g_events_map, L"rezek", (void*)2);
-    Map_insert(g_events_map, L"rr", (void*)6);
-    Map_insert(g_events_map, L"ra", (void*)6);
-    Map_insert(g_events_map, L"first", (void*)3);
-    Map_insert(g_events_map, L"fr", (void*)4);
-    Map_insert(g_events_map, L"fa", (void*)4);
-    Map_insert(g_events_map, L"rb", (void*)4);
 
-    Map_traversal(g_events_map);
-    Map_remove(g_events_map, L"kinaz");
-    Map_traversal(g_events_map);
+    //Map_traversal(g_events_map);
+    //Map_remove(g_events_map, L"kinaz");
+    //Map_traversal(g_events_map);
     
     return 0;
 }
@@ -85,6 +77,24 @@ void WaitForClientMessage(
 {
     DWORD id = GetCurrentThreadId();
     printf("Wait for %d '%S'\n", id, *cname);
+
+    HANDLE event = CreateEvent(
+        NULL,               // default security attributes
+        TRUE,               // manual-reset event
+        FALSE,              // initial state is nonsignaled
+        *cname  // object name
+    );
+
+    if (event == NULL)
+    {
+        printf("CreateEvent failed (%d)\n", GetLastError());
+        return;
+    }
+
+    Map_insert(g_events_map, *cname, event);
+    WaitForSingleObject(event, INFINITE);
+
+
 }
 
 void SendClientMessage(
@@ -93,5 +103,12 @@ void SendClientMessage(
     /* [in] */ long msize,
     /* [size_is][size_is][in] */ wchar_t** msg)
 {
+    HANDLE event = (HANDLE)Map_get(g_events_map, L"rezek");
+
+    if (!SetEvent(event))
+    {
+        printf("SetEvent failed (%d)\n", GetLastError());
+        return;
+    }
 
 }
