@@ -36,7 +36,7 @@ int Initialize()
         wchar_t buf[200];
         wsprintf(buf, L"Connection to database failed: %S\n",
             PQerrorMessage(g_conn));
-        Log_info(buf);
+        Log_error(buf);
         PQfinish(g_conn);
         g_conn = NULL;
     }

@@ -11,3 +11,14 @@ INFO|4704|This is game Server version 0.0.1
 Wed Oct 11 15:38:19 2023
 INFO|4704|Database Server version: 160000
 
+Wed Oct 11 15:40:05 2023
+INFO|16252|This is game Server version 0.0.1
+Wed Oct 11 15:40:05 2023
+INFO|16252|Database Server version: 160000
+
+Wed Oct 11 15:40:14 2023
+INFO|9408|This is game Server version 0.0.1
+Wed Oct 11 15:40:14 2023
+ERROR|9408|Connection to database failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  Passwort-Authentifizierung für Benutzer »wpostgres« fehlgeschlagen
+
+
