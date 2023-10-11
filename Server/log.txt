@@ -1,10 +1,4 @@
-INFO|6160|Wed Oct 11 14:00:35 2023
-|Initialize
-
-Wed Oct 11 14:02:39 2023
-INFO|5104|Initialize
-
-Wed Oct 11 14:07:53 2023
-INFO|4716|Initialize
-Wed Oct 11 14:08:16 2023
-INFO|2808|Initialize
+Wed Oct 11 14:14:05 2023
+INFO|10484|This is game Server version 0.0.1
+Wed Oct 11 14:14:12 2023
+INFO|10484|Server stopped

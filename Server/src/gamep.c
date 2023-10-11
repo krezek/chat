@@ -12,7 +12,7 @@ Map* g_events_map;
 int Initialize()
 {
     Logger_init();
-    Log_info(L"Initialize");
+    Log_info(about);
 
     g_events_map = Map_init();
 
@@ -25,10 +25,9 @@ int Initialize()
 
 void Destroy()
 {
-    printf("Destroy\n");
-
     Map_free(g_events_map);
 
+    Log_info(L"Server stopped");
     Logger_destroy();
 }
 

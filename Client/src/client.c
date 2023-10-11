@@ -77,7 +77,7 @@ void main()
 
         Logout((int)wcslen(msg) + 1, &msg);
 
-        //Shutdown();
+        Shutdown();
     }
         RpcExcept(1)
     {
