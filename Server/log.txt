@@ -1,8 +1,13 @@
-Wed Oct 11 14:14:05 2023
-INFO|10484|This is game Server version 0.0.1
-Wed Oct 11 14:14:12 2023
-INFO|10484|Server stopped
-Wed Oct 11 15:13:21 2023
-INFO|13260|This is game Server version 0.0.1
-Wed Oct 11 15:15:02 2023
-INFO|13120|This is game Server version 0.0.1
+Wed Oct 11 15:36:54 2023
+INFO|15012|This is game Server version 0.0.1
+Wed Oct 11 15:37:31 2023
+INFO|4072|This is game Server version 0.0.1
+Wed Oct 11 15:37:31 2023
+INFO|4072|Connection to database failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  Passwort-Authentifizierung für Benutzer »epostgres« fehlgeschlagen
+
+
+Wed Oct 11 15:38:19 2023
+INFO|4704|This is game Server version 0.0.1
+Wed Oct 11 15:38:19 2023
+INFO|4704|Database Server version: 160000
+

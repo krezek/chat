@@ -10,6 +10,7 @@
 
 wchar_t about[] = L"This is game Server version 0.0.1";
 Map* g_events_map;
+PGconn* g_conn;
 
 void do_exit(PGconn* conn) {
 
@@ -28,20 +29,24 @@ int Initialize()
     //Map_remove(g_events_map, L"kinaz");
     //Map_traversal(g_events_map);
 
-    PGconn* conn = PQconnectdb("user=postgres password=rezekkinaz76 dbname=postgres");
+    g_conn = PQconnectdb("user=postgres password=rezekkinaz76 dbname=postgres");
 
-    if (PQstatus(conn) == CONNECTION_BAD) {
-
-        fprintf(stderr, "Connection to database failed: %s\n",
-            PQerrorMessage(conn));
-        do_exit(conn);
+    if (PQstatus(g_conn) == CONNECTION_BAD)
+    {
+        wchar_t buf[200];
+        wsprintf(buf, L"Connection to database failed: %S\n",
+            PQerrorMessage(g_conn));
+        Log_info(buf);
+        PQfinish(g_conn);
+        g_conn = NULL;
     }
-
-    int ver = PQserverVersion(conn);
-
-    printf("Server version: %d\n", ver);
-
-    PQfinish(conn);
+    else
+    {
+        int ver = PQserverVersion(g_conn);
+        wchar_t buf[50];
+        wsprintf(buf, L"Database Server version: %d\n", ver);
+        Log_info(buf);
+    }
     
     return 0;
 }
@@ -49,6 +54,9 @@ int Initialize()
 void Destroy()
 {
     Map_free(g_events_map);
+
+    if(g_conn)
+        PQfinish(g_conn);
 
     Log_info(L"Server stopped");
     Logger_destroy();
