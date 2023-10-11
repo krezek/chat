@@ -11,9 +11,8 @@ Map* g_events_map;
 
 int Initialize()
 {
-    printf("Initialize\n");
-
     Logger_init();
+    Log_info(L"Initialize");
 
     g_events_map = Map_init();
 
