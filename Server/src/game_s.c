@@ -31,8 +31,8 @@
 #include <string.h>
 #include "game.h"
 
-#define TYPE_FORMAT_STRING_SIZE   47                                
-#define PROC_FORMAT_STRING_SIZE   185                               
+#define TYPE_FORMAT_STRING_SIZE   67                                
+#define PROC_FORMAT_STRING_SIZE   235                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -275,7 +275,7 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 142 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 144 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
 
-	/* Procedure WaitForClient */
+	/* Procedure WaitForClientMessage */
 
 /* 146 */	0x32,		/* FC_BIND_PRIMITIVE */
 			0x48,		/* Old Flags:  */
@@ -305,6 +305,50 @@ static const game_MIDL_PROC_FORMAT_STRING game__MIDL_ProcFormatString =
 /* 178 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
 /* 180 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
 /* 182 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
+
+	/* Procedure SendClientMessage */
+
+/* 184 */	0x32,		/* FC_BIND_PRIMITIVE */
+			0x48,		/* Old Flags:  */
+/* 186 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 190 */	NdrFcShort( 0x5 ),	/* 5 */
+/* 192 */	NdrFcShort( 0x20 ),	/* X64 Stack size/offset = 32 */
+/* 194 */	NdrFcShort( 0x10 ),	/* 16 */
+/* 196 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 198 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
+			0x4,		/* 4 */
+/* 200 */	0xa,		/* 10 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 202 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 204 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 206 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 208 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter csize */
+
+/* 210 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 212 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
+/* 214 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Parameter cname */
+
+/* 216 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
+/* 218 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 220 */	NdrFcShort( 0x1a ),	/* Type Offset=26 */
+
+	/* Parameter msize */
+
+/* 222 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 224 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 226 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Parameter msg */
+
+/* 228 */	NdrFcShort( 0x200b ),	/* Flags:  must size, must free, in, srv alloc size=8 */
+/* 230 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/* 232 */	NdrFcShort( 0x2e ),	/* Type Offset=46 */
 
 			0x0
         }
@@ -351,6 +395,22 @@ static const game_MIDL_TYPE_FORMAT_STRING game__MIDL_TypeFormatString =
 /* 42 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
 /* 44 */	0x5,		/* FC_WCHAR */
 			0x5b,		/* FC_END */
+/* 46 */	
+			0x11, 0x14,	/* FC_RP [alloced_on_stack] [pointer_deref] */
+/* 48 */	NdrFcShort( 0x2 ),	/* Offset= 2 (50) */
+/* 50 */	
+			0x12, 0x0,	/* FC_UP */
+/* 52 */	NdrFcShort( 0x2 ),	/* Offset= 2 (54) */
+/* 54 */	
+			0x1b,		/* FC_CARRAY */
+			0x1,		/* 1 */
+/* 56 */	NdrFcShort( 0x2 ),	/* 2 */
+/* 58 */	0x28,		/* Corr desc:  parameter, FC_LONG */
+			0x0,		/*  */
+/* 60 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 62 */	NdrFcShort( 0x1 ),	/* Corr flags:  early, */
+/* 64 */	0x5,		/* FC_WCHAR */
+			0x5b,		/* FC_END */
 
 			0x0
         }
@@ -362,7 +422,8 @@ static const unsigned short Game_FormatStringOffsetTable[] =
     38,
     64,
     108,
-    146
+    146,
+    184
     };
 
 
@@ -403,11 +464,12 @@ static const RPC_DISPATCH_FUNCTION Game_table[] =
     NdrServerCall2,
     NdrServerCall2,
     NdrServerCall2,
+    NdrServerCall2,
     0
     };
 static const RPC_DISPATCH_TABLE Game_v1_0_DispatchTable = 
     {
-    5,
+    6,
     (RPC_DISPATCH_FUNCTION*)Game_table
     };
 
@@ -417,7 +479,8 @@ static const SERVER_ROUTINE Game_ServerRoutineTable[] =
     (SERVER_ROUTINE)Shutdown,
     (SERVER_ROUTINE)TryLogin,
     (SERVER_ROUTINE)Logout,
-    (SERVER_ROUTINE)WaitForClient
+    (SERVER_ROUTINE)WaitForClientMessage,
+    (SERVER_ROUTINE)SendClientMessage
     };
 
 static const MIDL_SERVER_INFO Game_ServerInfo = 

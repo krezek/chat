@@ -22,8 +22,15 @@ interface Game
 		[in, size_is(, size)]	wchar_t** alias
 	);
 
-	void WaitForClient(
+	void WaitForClientMessage(
 		[in]					long size,
 		[in, size_is(, size)]	wchar_t** cname
+	);
+
+	void SendClientMessage(
+		[in]					long csize,
+		[in, size_is(, csize)]	wchar_t** cname,
+		[in]					long msize,
+		[in, size_is(, msize)]	wchar_t** msg
 	);
 }

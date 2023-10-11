@@ -17,7 +17,7 @@ DWORD WINAPI WaitFor(LPVOID lpParam)
 
     RpcTryExcept
     {
-        WaitForClient((int)wcslen(cname) + 1, &cname);
+        WaitForClientMessage((int)wcslen(cname) + 1, &cname);
     }
     RpcExcept(1)
     {

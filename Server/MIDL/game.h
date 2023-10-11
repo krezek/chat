@@ -74,9 +74,15 @@ void Logout(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **alias);
 
-void WaitForClient( 
+void WaitForClientMessage( 
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **cname);
+
+void SendClientMessage( 
+    /* [in] */ long csize,
+    /* [size_is][size_is][in] */ wchar_t **cname,
+    /* [in] */ long msize,
+    /* [size_is][size_is][in] */ wchar_t **msg);
 
 
 extern handle_t hello_IfHandle;
