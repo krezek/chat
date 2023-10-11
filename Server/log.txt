@@ -2,3 +2,7 @@ Wed Oct 11 14:14:05 2023
 INFO|10484|This is game Server version 0.0.1
 Wed Oct 11 14:14:12 2023
 INFO|10484|Server stopped
+Wed Oct 11 15:13:21 2023
+INFO|13260|This is game Server version 0.0.1
+Wed Oct 11 15:15:02 2023
+INFO|13120|This is game Server version 0.0.1

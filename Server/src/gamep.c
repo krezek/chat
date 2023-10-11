@@ -2,12 +2,20 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include <libpq-fe.h>
+
 #include "game.h"
 #include "util.h"
 #include "log.h"
 
 wchar_t about[] = L"This is game Server version 0.0.1";
 Map* g_events_map;
+
+void do_exit(PGconn* conn) {
+
+    PQfinish(conn);
+    exit(1);
+}
 
 int Initialize()
 {
@@ -19,6 +27,21 @@ int Initialize()
     //Map_traversal(g_events_map);
     //Map_remove(g_events_map, L"kinaz");
     //Map_traversal(g_events_map);
+
+    PGconn* conn = PQconnectdb("user=postgres password=rezekkinaz76 dbname=postgres");
+
+    if (PQstatus(conn) == CONNECTION_BAD) {
+
+        fprintf(stderr, "Connection to database failed: %s\n",
+            PQerrorMessage(conn));
+        do_exit(conn);
+    }
+
+    int ver = PQserverVersion(conn);
+
+    printf("Server version: %d\n", ver);
+
+    PQfinish(conn);
     
     return 0;
 }
