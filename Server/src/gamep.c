@@ -45,6 +45,25 @@ void GetServerInfo(
     wcscpy_s(*outString, *size, about);
 }
 
+void Shutdown(void)
+{
+    RPC_STATUS status;
+
+    status = RpcMgmtStopServerListening(NULL);
+
+    if (status)
+    {
+        exit(status);
+    }
+
+    status = RpcServerUnregisterIf(NULL, NULL, FALSE);
+
+    if (status)
+    {
+        exit(status);
+    }
+}
+
 int TryLogin(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** alias)

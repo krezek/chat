@@ -10,6 +10,8 @@ interface Game
 		[out, size_is(, *size)] wchar_t** outString
 	);
 
+	void Shutdown();
+
 	int TryLogin(
 		[in]					long size,
 		[in , size_is(, size)]	wchar_t** alias

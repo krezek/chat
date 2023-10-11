@@ -75,6 +75,8 @@ void main()
         CloseHandle(hThread);
 
         Logout((int)wcslen(msg) + 1, &msg);
+
+        Shutdown();
     }
         RpcExcept(1)
     {

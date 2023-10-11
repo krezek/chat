@@ -64,6 +64,8 @@ void GetServerInfo(
     /* [out] */ long *size,
     /* [size_is][size_is][out] */ wchar_t **outString);
 
+void Shutdown( void);
+
 int TryLogin( 
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t **alias);
