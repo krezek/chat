@@ -1,5 +1,5 @@
-#ifndef _UTIL_H_
-#define _UTIL_H_
+#ifndef _MAP_H_
+#define _MAP_H_
 
 #include <wchar.h>
 
@@ -20,10 +20,11 @@ typedef struct _Map
 
 Map* Map_init();
 void Map_free(Map* m);
+
 void Map_insert(Map* m, const wchar_t* k, void* v);
 void* Map_get(Map* m, const wchar_t* k);
 void Map_remove(Map* m, const wchar_t* k);
 void Map_remove_all(Map* m);
 void Map_traversal(Map* m);
 
-#endif /* _UTIL_H_ */
+#endif /* _MAP_H_ */

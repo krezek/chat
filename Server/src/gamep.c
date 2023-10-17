@@ -1,8 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
+#include "platform.h"
+
 #include "game.h"
-#include "util.h"
+#include "map.h"
 #include "log.h"
 
 wchar_t about[] = L"This is game Server version 0.0.1";

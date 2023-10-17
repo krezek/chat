@@ -1,8 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
+#include "platform.h"
 
-#include "util.h"
+#include "map.h"
 
 
 Node* Node_init(const wchar_t* k, void* v, Node* l, Node* r)

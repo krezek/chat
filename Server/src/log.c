@@ -1,12 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <Windows.h>
+#include "platform.h"
 
 #include "log.h"
 
 static FILE* g_log_file;
-CRITICAL_SECTION CriticalSection;
+static CRITICAL_SECTION g_file_guard;
 
 void Logger_init()
 {
@@ -16,7 +13,7 @@ void Logger_init()
 	if (err)
 		fprintf(stderr, "Cannot open 'log.txt' file.\n");
 
-	InitializeCriticalSection(&CriticalSection);
+	InitializeCriticalSection(&g_file_guard);
 }
 
 void Logger_destroy()
@@ -31,7 +28,7 @@ static void Log_func(const wchar_t* cat, const wchar_t* msg)
 	struct tm tm;
 	DWORD thID;
 
-	EnterCriticalSection(&CriticalSection);
+	EnterCriticalSection(&g_file_guard);
 	
 	t = time(NULL);
 	thID = GetCurrentThreadId();
@@ -40,8 +37,9 @@ static void Log_func(const wchar_t* cat, const wchar_t* msg)
 	asctime_s(buf, 100, &tm);
 
 	fwprintf(g_log_file, L"%S%s|%d|%s\n", buf, cat, thID, msg);
+	fflush(g_log_file);
 
-	LeaveCriticalSection(&CriticalSection);
+	LeaveCriticalSection(&g_file_guard);
 }
 
 void Log_info(const wchar_t* msg)

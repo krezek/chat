@@ -82,7 +82,7 @@
     <ClCompile Include="src\game_s.c" />
     <ClCompile Include="src\log.c" />
     <ClCompile Include="src\server.c" />
-    <ClCompile Include="src\util.c" />
+    <ClCompile Include="src\map.c" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MIDL\game.idl">
@@ -95,7 +95,8 @@
   <ItemGroup>
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\log.h" />
-    <ClInclude Include="include\util.h" />
+    <ClInclude Include="include\map.h" />
+    <ClInclude Include="src\platform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

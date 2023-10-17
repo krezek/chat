@@ -1,12 +1,4 @@
-#ifdef _DEBUG
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-#endif
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h>
-#include <windows.h>
+#include "platform.h"
 
 #include "game.h"
 
