@@ -33,6 +33,9 @@
     <ClCompile Include="src\log.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\wstrg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MIDL\game.idl">
@@ -51,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="src\platform.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\wstrg.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
