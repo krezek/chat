@@ -63,7 +63,7 @@ void main()
         const wchar_t* msg = L"Kinaz";
         TryLogin((int)wcslen(msg) + 1, &msg);
 
-        hThread = CreateThread(NULL, 0, WaitFor, NULL, 0, &dwThreadId);
+        /*hThread = CreateThread(NULL, 0, WaitFor, NULL, 0, &dwThreadId);
 
         if (hThread == NULL)
         {
@@ -78,6 +78,7 @@ void main()
         Logout((int)wcslen(msg) + 1, &msg);
 
         Shutdown();
+        */
     }
         RpcExcept(1)
     {

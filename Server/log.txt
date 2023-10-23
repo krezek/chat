@@ -22,3 +22,59 @@ Wed Oct 11 15:40:14 2023
 ERROR|9408|Connection to database failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  Passwort-Authentifizierung für Benutzer »wpostgres« fehlgeschlagen
 
 
+Mon Oct 23 07:18:24 2023
+INFO|12508|This is game Server version 0.0.1
+Mon Oct 23 07:30:09 2023
+INFO|14908|This is game Server version 0.0.1
+Mon Oct 23 07:37:00 2023
+INFO|15620|This is game Server version 0.0.1
+Mon Oct 23 07:47:24 2023
+INFO|13816|This is game Server version 0.0.1
+Mon Oct 23 07:48:30 2023
+INFO|17496|This is game Server version 0.0.1
+Mon Oct 23 07:49:35 2023
+INFO|15260|This is game Server version 0.0.1
+Mon Oct 23 07:51:31 2023
+INFO|9716|This is game Server version 0.0.1
+Mon Oct 23 07:56:31 2023
+INFO|14096|This is game Server version 0.0.1
+Mon Oct 23 07:57:09 2023
+INFO|15264|This is game Server version 0.0.1
+Mon Oct 23 08:19:55 2023
+INFO|10604|This is game Server version 0.0.1
+Mon Oct 23 08:21:53 2023
+INFO|8716|This is game Server version 0.0.1
+Mon Oct 23 08:25:45 2023
+INFO|16084|This is game Server version 0.0.1
+Mon Oct 23 08:27:39 2023
+INFO|20104|This is game Server version 0.0.1
+Mon Oct 23 08:29:48 2023
+INFO|944|This is game Server version 0.0.1
+Mon Oct 23 08:34:50 2023
+INFO|11080|This is game Server version 0.0.1
+Mon Oct 23 08:35:34 2023
+INFO|8008|This is game Server version 0.0.1
+Mon Oct 23 08:35:55 2023
+INFO|2708|This is game Server version 0.0.1
+Mon Oct 23 08:36:52 2023
+INFO|4732|This is game Server version 0.0.1
+Mon Oct 23 08:37:25 2023
+INFO|16340|This is game Server version 0.0.1
+Mon Oct 23 08:39:28 2023
+INFO|17008|This is game Server version 0.0.1
+Mon Oct 23 08:46:16 2023
+INFO|12440|This is game Server version 0.0.1
+Mon Oct 23 09:31:34 2023
+INFO|16024|This is game Server version 0.0.1
+Mon Oct 23 09:32:13 2023
+INFO|11516|This is game Server version 0.0.1
+Mon Oct 23 09:33:41 2023
+INFO|7508|This is game Server version 0.0.1
+Mon Oct 23 09:34:43 2023
+INFO|14520|This is game Server version 0.0.1
+Mon Oct 23 09:35:00 2023
+INFO|5168|TryLogin:IP(::1) as Kinaz
+Mon Oct 23 09:38:24 2023
+INFO|11696|This is game Server version 0.0.1
+Mon Oct 23 09:38:35 2023
+INFO|18676|TryLogin:IP(::1) as Kinaz

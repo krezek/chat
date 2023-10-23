@@ -22,6 +22,39 @@ int Initialize()
     return 0;
 }
 
+void GetClientIPAddress(wchar_t* ntAddrStr)
+{
+    RPC_BINDING_HANDLE sb;
+    RPC_STATUS status = RpcBindingServerFromClient(NULL, &sb);
+    if (status)
+    {
+        Log_error(L"GetClientIPAddress::RpcBindingServerFromClient");
+        return;
+    }
+
+    RPC_WSTR buf;
+    status = RpcBindingToStringBinding(sb, &buf);
+    if (status)
+    {
+        Log_error(L"GetClientIPAddress::RpcBindingToStringBinding");
+        return;
+    }
+
+    RPC_WSTR networkAddr;
+    status = RpcStringBindingParse(buf, NULL, NULL, &networkAddr, NULL, NULL);
+    if (status)
+    {
+        Log_error(L"GetClientIPAddress::RpcStringBindingParse");
+        RpcStringFree(&buf);
+        return;
+    }
+
+    wcscpy_s(ntAddrStr, wcslen(networkAddr) + 1, networkAddr);
+
+    RpcStringFree(&networkAddr);
+    RpcStringFree(&buf);
+}
+
 void Destroy()
 {
     Map_free(g_events_map);
@@ -62,7 +95,13 @@ int TryLogin(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** alias)
 {
-    printf("Try to login as '%S'\n", *alias);
+    wchar_t ipStr[50];
+    GetClientIPAddress(ipStr);
+
+    wchar_t logBuf[255];
+    wsprintf(logBuf, L"TryLogin:IP(%s) as %s", ipStr, *alias);
+    Log_info(logBuf);
+
     return 0;
 }
 
