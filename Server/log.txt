@@ -78,3 +78,5 @@ Mon Oct 23 09:38:24 2023
 INFO|11696|This is game Server version 0.0.1
 Mon Oct 23 09:38:35 2023
 INFO|18676|TryLogin:IP(::1) as Kinaz
+Wed Oct 25 16:57:45 2023
+INFO|18940|This is a game server version 0.0.1

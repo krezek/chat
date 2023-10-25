@@ -4,16 +4,20 @@
 #include "map.h"
 #include "log.h"
 
-wchar_t about[] = L"This is game Server version 0.0.1";
-Map* g_events_map;
+wchar_t about[] = L"This is a game server version 0.0.1";
+Map* g_players_map;
 
+void free_players_data(void* v)
+{
+
+}
 
 int Initialize()
 {
     Logger_init();
     Log_info(about);
 
-    g_events_map = Map_init();
+    g_players_map = Map_init();
 
     //Map_traversal(g_events_map);
     //Map_remove(g_events_map, L"kinaz");
@@ -57,7 +61,7 @@ void GetClientIPAddress(wchar_t* ntAddrStr)
 
 void Destroy()
 {
-    Map_free(g_events_map);
+    Map_free(g_players_map, free_players_data);
 
     Log_info(L"Server stopped");
     Logger_destroy();
@@ -116,7 +120,7 @@ void WaitForClientMessage(
     /* [in] */ long size,
     /* [size_is][size_is][in] */ wchar_t** cname)
 {
-    DWORD id = GetCurrentThreadId();
+    /*DWORD id = GetCurrentThreadId();
     printf("Wait for %d '%S'\n", id, *cname);
 
     HANDLE event = CreateEvent(
@@ -135,7 +139,7 @@ void WaitForClientMessage(
     Map_insert(g_events_map, *cname, event);
     WaitForSingleObject(event, INFINITE);
 
-
+    */
 }
 
 void SendClientMessage(
@@ -144,12 +148,12 @@ void SendClientMessage(
     /* [in] */ long msize,
     /* [size_is][size_is][in] */ wchar_t** msg)
 {
-    HANDLE event = (HANDLE)Map_get(g_events_map, L"rezek");
+    /*HANDLE event = (HANDLE)Map_get(g_events_map, L"rezek");
 
     if (!SetEvent(event))
     {
         printf("SetEvent failed (%d)\n", GetLastError());
         return;
     }
-
+    */
 }

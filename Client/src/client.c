@@ -35,7 +35,7 @@ void main()
     RPC_STATUS status;
     wchar_t* pszUuid = NULL;
     wchar_t* pszProtocolSequence = L"ncacn_ip_tcp";
-    wchar_t* pszNetworkAddress = L"localhost";
+    wchar_t* pszNetworkAddress = L"rezek.ddns.net";
     wchar_t* pszEndpoint = L"9300";
     wchar_t* pszOptions = NULL;
     wchar_t* pszStringBinding = NULL;
@@ -74,11 +74,11 @@ void main()
         WaitForSingleObject(hThread, INFINITE);
 
         CloseHandle(hThread);
-
+        */
         Logout((int)wcslen(msg) + 1, &msg);
 
         Shutdown();
-        */
+        
     }
         RpcExcept(1)
     {
