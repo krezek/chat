@@ -23,7 +23,7 @@ typedef struct _Map
 Map* Map_init();
 void Map_free(Map* m, MValueFree freeFunc);
 
-void Map_insert(Map* m, const wchar_t* k, void* v);
+int Map_insert(Map* m, const wchar_t* k, void* v);
 void* Map_get(Map* m, const wchar_t* k);
 void Map_remove(Map* m, const wchar_t* k, MValueFree freeFunc);
 void Map_remove_all(Map* m, MValueFree freeFunc);

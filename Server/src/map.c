@@ -46,35 +46,37 @@ void Map_free(Map* m, MValueFree freeFunc)
 	free(m);
 }
 
-void Map_insert_n(Node** pn, const wchar_t* k, void* v)
+int Map_insert_node(Node** pn, const wchar_t* k, void* v)
 {
 	if (*pn == NULL)
 	{
 		*pn = Node_init(k, v, NULL, NULL);
+		return 0;
 	}
 	else
 	{
 		if (wcscmp((*pn)->_key, k) > 0)
 		{
-			Map_insert_n(&((*pn)->_left), k, v);
+			return Map_insert_node(&((*pn)->_left), k, v);
 		}
 		else if (wcscmp((*pn)->_key, k) < 0)
 		{
-			Map_insert_n(&((*pn)->_right), k, v);
+			return Map_insert_node(&((*pn)->_right), k, v);
 		}
 		else
 		{
 			printf("Map_insert_n: error\n");
+			return -1;
 		}
 	}
 }
 
-void Map_insert(Map* m, const wchar_t* k, void* v)
+int Map_insert(Map* m, const wchar_t* k, void* v)
 {
-	Map_insert_n(&m->_root, k, v);
+	return Map_insert_node(&m->_root, k, v);
 }
 
-void* Map_get_n(Node** pn, const wchar_t* k)
+void* Map_get_node(Node** pn, const wchar_t* k)
 {
 	if (*pn == NULL)
 		return NULL;
@@ -82,17 +84,17 @@ void* Map_get_n(Node** pn, const wchar_t* k)
 	if (wcscmp((*pn)->_key, k) == 0)
 		return (*pn)->_value;
 	else if (wcscmp((*pn)->_key, k) > 0)
-		return Map_get_n(&((*pn)->_left), k);
+		return Map_get_node(&((*pn)->_left), k);
 	else
-		return Map_get_n(&((*pn)->_right), k);
+		return Map_get_node(&((*pn)->_right), k);
 }
 
 void* Map_get(Map* m, const wchar_t* k)
 {
-	return Map_get_n(&m->_root, k);
+	return Map_get_node(&m->_root, k);
 }
 
-void Map_remove_n(Node** pn, const wchar_t* k, MValueFree freeFunc)
+void Map_remove_node(Node** pn, const wchar_t* k, MValueFree freeFunc)
 {
 	if (*pn == NULL)
 		return;
@@ -127,7 +129,8 @@ void Map_remove_n(Node** pn, const wchar_t* k, MValueFree freeFunc)
 				cur = &(*cur)->_left;
 
 			free((*pn)->_key);
-			freeFunc((*pn)->_value);
+			if((*pn)->_value)
+				freeFunc((*pn)->_value);
 
 			(*pn)->_key = (wchar_t*)malloc((wcslen((*cur)->_key) + 1) * sizeof(wchar_t));
 			assert((*pn)->_key != NULL);
@@ -136,18 +139,18 @@ void Map_remove_n(Node** pn, const wchar_t* k, MValueFree freeFunc)
 			(*pn)->_value = (*cur)->_value;
 			(*cur)->_value = NULL;
 			
-			Map_remove_n(cur, (*cur)->_key, freeFunc);
+			Map_remove_node(cur, (*cur)->_key, freeFunc);
 		}
 	}
 	else if (wcscmp((*pn)->_key, k) > 0)
-		Map_remove_n(&((*pn)->_left), k, freeFunc);
+		Map_remove_node(&((*pn)->_left), k, freeFunc);
 	else
-		Map_remove_n(&((*pn)->_right), k, freeFunc);
+		Map_remove_node(&((*pn)->_right), k, freeFunc);
 }
 
 void Map_remove(Map* m, const wchar_t* k, MValueFree freeFunc)
 {
-	Map_remove_n(&m->_root, k, freeFunc);
+	Map_remove_node(&m->_root, k, freeFunc);
 }
 
 void Map_traversal_n(Node* node) {
@@ -165,18 +168,18 @@ void Map_traversal(Map* m)
 	printf("\n");
 }
 
-void Map_remove_all_n(Node* node, MValueFree freeFunc)
+void Map_remove_all_node(Node* node, MValueFree freeFunc)
 {
 	if (node == NULL)
 		return;
 
-	Map_remove_all_n(node->_left, freeFunc);
-	Map_remove_all_n(node->_right, freeFunc);
+	Map_remove_all_node(node->_left, freeFunc);
+	Map_remove_all_node(node->_right, freeFunc);
 
 	Node_free(node, freeFunc);
 }
 
 void Map_remove_all(Map* m, MValueFree freeFunc)
 {
-	Map_remove_all_n(m->_root, freeFunc);
+	Map_remove_all_node(m->_root, freeFunc);
 }
